@@ -11,6 +11,8 @@ import ErrorPage from "../pages/ErrorPage";
 import SupplyDetails from "../pages/SupplyDetails";
 import DBCreateSupply from "../pages/DBCreateSupply";
 import ProtectedRoute from "./ProtectedRoute";
+import LeaderBoard from "../pages/leaderBoard/LeaderBoard";
+import Community from "../pages/Community";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +27,14 @@ const router = createBrowserRouter([
       {
         path: "/supplies",
         element: <AllSupplies></AllSupplies>,
+      },
+      {
+        path: "/leaderboard",
+        element: <LeaderBoard></LeaderBoard>,
+      },
+      {
+        path: "/community",
+        element: <Community></Community>,
       },
       {
         path: "/supplies/:id",

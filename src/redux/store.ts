@@ -15,6 +15,7 @@ import storage from "redux-persist/lib/storage";
 import deleteModalReducer from "./features/deleteModalSlice";
 import updateSupplyModalReducer from "./features/updateSupplyModalSlice";
 import authReducer from "./features/auth/authSlice";
+import supplyIdReducer from "./features/addSupply/supplyIdSlice";
 
 const authPersistedUser = {
   key: "auth",
@@ -51,6 +52,9 @@ export const store = configureStore({
 
     // localState for auth
     auth: authPersistedReducer,
+
+    // localState for supply id
+    supplyId: supplyIdReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

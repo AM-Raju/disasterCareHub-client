@@ -40,7 +40,7 @@ const Navbar = () => {
     <>
       {/* Web Nav */}
       <div>
-        <div className="hidden lg:block bg-white h-24 bg-opacity-60  absolute w-full  mx-auto border-b-[1px] border-amber-500">
+        <div className="hidden lg:block bg-white h-24 bg-opacity-60  absolute top-0 w-full  mx-auto border-b-[1px] border-amber-500 z-50">
           <Container>
             <div className="h-24 flex items-center justify-between">
               <NavLink to="/">
@@ -50,6 +50,14 @@ const Navbar = () => {
               <nav className="flex gap-5 font-roboto tracking-widest ">
                 <div className="relative group">
                   <NavLink to="/supplies">All Supplies</NavLink>
+                  <div className="w-full h-0.5 group-hover:bg-white absolute left-0 -bottom-9 transition-all duration-500"></div>
+                </div>
+                <div className="relative group">
+                  <NavLink to="/leaderboard">LeaderBoard</NavLink>
+                  <div className="w-full h-0.5 group-hover:bg-white absolute left-0 -bottom-9 transition-all duration-500"></div>
+                </div>
+                <div className="relative group">
+                  <NavLink to="/community">Community</NavLink>
                   <div className="w-full h-0.5 group-hover:bg-white absolute left-0 -bottom-9 transition-all duration-500"></div>
                 </div>
 

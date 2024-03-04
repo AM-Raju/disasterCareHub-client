@@ -2,17 +2,17 @@ import Container from "../../layouts/Container";
 
 const AboutUs = () => {
   return (
-    <Container>
-      <div className="mt-36 relative">
-        <div className="group">
-          <h1 className="text-4xl lg:text-6xl font-bold text-amber-500 z-10 font-poppins absolute top-5 lg:top-16 lg:left-[calc(50%-135px)] left-[calc(50%-85px)]">
-            About Us
-          </h1>
-          <h1 className="text-6xl lg:text-9xl font-bold text-white  font-poppins absolute top-8 left-[calc(50%-140px)] lg:left-[calc(50%-300px)] opacity-10 group-hover:opacity-40 transition-all duration-500">
-            About Us
-          </h1>
-          <img className="w-full" src={"https://i.ibb.co/znCRM8H/about-Us-Bg.jpg"} alt="" />
-        </div>
+    <div className="mt-36 relative">
+      <div className="group max-w-[1280px] mx-auto">
+        <h1 className="text-4xl lg:text-6xl font-bold text-amber-500 z-10 font-poppins absolute top-5 lg:top-16 lg:left-[calc(50%-135px)] left-[calc(50%-85px)]">
+          About Us
+        </h1>
+        <h1 className="text-6xl lg:text-9xl font-bold text-white  font-poppins absolute top-8 left-[calc(50%-140px)] lg:left-[calc(50%-300px)] opacity-10 group-hover:opacity-40 transition-all duration-500">
+          About Us
+        </h1>
+        <img className="w-full" src={"https://i.ibb.co/znCRM8H/about-Us-Bg.jpg"} alt="" />
+      </div>
+      <Container>
         <div className=" max-w-[90%] xl:max-w-[80%] mx-auto bg-blue-400 text-gray-800 relative -top-24 lg:-top-52 grid grid-cols-1 lg:grid-cols-2 gap-x-5 lg:p-10 p-5">
           <div className="py-3 gap-5 flex items-start group  ">
             <svg
@@ -170,8 +170,8 @@ const AboutUs = () => {
           </div>
           <div></div>
         </div>
-      </div>
-    </Container>
+      </Container>
+    </div>
   );
 };
 

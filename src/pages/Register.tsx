@@ -9,8 +9,10 @@ const Register = () => {
   const { register, handleSubmit, reset } = useForm<FieldValues>();
 
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
+    const newUser = { ...data, role: "user" };
+
     try {
-      const res: any = await registration(data);
+      const res: any = await registration(newUser);
       if (res?.data?.success) {
         toast.success(res.data.message);
         reset();

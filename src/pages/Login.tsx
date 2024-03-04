@@ -18,6 +18,7 @@ const Login = () => {
 
       if (res?.data?.success) {
         const decodedUser = jwtDecode(res?.data?.token);
+        console.log("decoded user", decodedUser);
 
         dispatch(setUser({ user: decodedUser, token: res?.data?.token }));
 

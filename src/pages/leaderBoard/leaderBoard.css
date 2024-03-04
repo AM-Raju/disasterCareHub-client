@@ -1,0 +1,23 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.leaderBoard-bg {
+  width: 100%;
+
+  z-index: -1;
+  background-color: #e5e5f7;
+
+  background-size: 20px 20px;
+  background-image: repeating-linear-gradient(to right, #444cf7, #444cf7 1px, #e5e5f7 1px, #e5e5f7);
+
+  animation: animateBg 5s infinite;
+}
+
+@keyframes animateBg {
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}
