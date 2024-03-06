@@ -3,8 +3,8 @@ import { FaTrash } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import { TSupply } from "../../types/supply.types";
 import { useAppDispatch } from "../../redux/hook";
-import { openDeleteModal } from "../../redux/features/deleteModalSlice";
-import { openUpdateSupplyModal } from "../../redux/features/updateSupplyModalSlice";
+import { openDeleteModal } from "../../redux/features/supply/deleteModalSlice";
+import { openUpdateSupplyModal } from "../../redux/features/supply/updateSupplyModalSlice";
 
 type TTableRowProps = {
   key: string;
@@ -14,7 +14,7 @@ type TTableRowProps = {
 
 const TableRow = ({ supply, index }: TTableRowProps) => {
   const dispatch = useAppDispatch();
-  const { _id, title, category, amount, imageUrl } = supply;
+  const { _id, title, donatedBy, category, amount, imageUrl } = supply;
 
   const handleDeleteModal = (id: string) => {
     dispatch(openDeleteModal(id));
@@ -39,6 +39,11 @@ const TableRow = ({ supply, index }: TTableRowProps) => {
         </td>
         <td>
           <div className="flex items-center justify-center ">
+            <p>{donatedBy}</p>
+          </div>
+        </td>
+        <td>
+          <div className="flex items-center justify-center ">
             <p>{title}</p>
           </div>
         </td>
@@ -47,20 +52,20 @@ const TableRow = ({ supply, index }: TTableRowProps) => {
           <p>${amount}</p>
         </td>
         <td>
-          <div className="flex items-center justify-center">
+          <button className="flex items-center justify-center w-full">
             <FaRegEdit
               onClick={() => handleUpdateSupplyModal(_id)}
               className="size-5 text-amber-500 hover:text-amber-600 transition-all duration-300"
             ></FaRegEdit>
-          </div>
+          </button>
         </td>
         <td>
-          <div className="flex items-center justify-center">
+          <button className="flex items-center justify-center w-full">
             <FaTrash
               onClick={() => handleDeleteModal(_id)}
               className="size-5 text-red-500 hover:text-red-600 transition-all duration-300"
             ></FaTrash>
-          </div>
+          </button>
         </td>
         <td>
           <Link to="/dashboard/create-supply">

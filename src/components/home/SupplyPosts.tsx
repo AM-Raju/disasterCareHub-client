@@ -1,7 +1,7 @@
 import Container from "../../layouts/Container";
 import Button from "../ui/Button";
 import SupplyCard from "../cards/SupplyCard";
-import { useGetSuppliesQuery } from "../../redux/features/addSupply/supplyApi";
+import { useGetSuppliesQuery } from "../../redux/features/supply/supplyApi";
 import { TSupply } from "../../types/supply.types";
 import Spinner from "../ui/Spinner";
 import { Link } from "react-router-dom";

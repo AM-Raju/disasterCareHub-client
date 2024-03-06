@@ -1,7 +1,7 @@
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { useAppDispatch, useAppSelector } from "../../redux/hook";
 import { FaXmark } from "react-icons/fa6";
-import { closeUpdateSupplyModal } from "../../redux/features/updateSupplyModalSlice";
+import { closeUpdateSupplyModal } from "../../redux/features/supply/updateSupplyModalSlice";
 // import { useGetSupplyQuery } from "../../redux/features/addSupply/supplyApi";
 
 const UpdateSupplyModal = () => {

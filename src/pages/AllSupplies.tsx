@@ -1,6 +1,6 @@
 import Container from "../layouts/Container";
 import SupplyCard from "../components/cards/SupplyCard";
-import { useGetSuppliesQuery } from "../redux/features/addSupply/supplyApi";
+import { useGetSuppliesQuery } from "../redux/features/supply/supplyApi";
 
 import Spinner from "../components/ui/Spinner";
 import { TSupply } from "../types/supply.types";

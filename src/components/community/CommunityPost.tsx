@@ -1,10 +1,12 @@
-import { useGetSupplyQuery } from "../../redux/features/addSupply/supplyApi";
+import { useGetSupplyQuery } from "../../redux/features/supply/supplyApi";
 import { useAppSelector } from "../../redux/hook";
 
 const CommunityPost = () => {
   const supplyId = useAppSelector((state) => state.supplyId.id);
 
   const { data } = useGetSupplyQuery(supplyId);
+
+  /* Handling f */
 
   return (
     <div className="bg-amber-500 w-full h-full">

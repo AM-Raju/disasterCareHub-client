@@ -1,5 +1,5 @@
 import { FaHome } from "react-icons/fa";
-import { FaLeftLong, FaList, FaPlus } from "react-icons/fa6";
+import { FaLeftLong, FaList, FaPlus, FaUsers } from "react-icons/fa6";
 import { NavLink } from "react-router-dom";
 
 const Sidebar = () => {
@@ -17,6 +17,17 @@ const Sidebar = () => {
           >
             <FaHome className={`shrink-0 size-6`}></FaHome>
             <span className="truncate">Dashboard Home</span>
+          </NavLink>
+          <NavLink
+            className={({ isActive }) =>
+              `w-full px-3 py-2  hover:bg-amber-500 transition-all duration-300 flex gap-3 items-center truncate ${
+                isActive ? "bg-amber-500" : "bg-gray-300"
+              }`
+            }
+            to="/dashboard/all-users"
+          >
+            <FaUsers className="shrink-0 size-6" />
+            <span className="truncate">All Users</span>
           </NavLink>
           <NavLink
             className={({ isActive }) =>

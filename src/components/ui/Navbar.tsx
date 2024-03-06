@@ -6,6 +6,7 @@ import { useAppDispatch, useAppSelector } from "../../redux/hook";
 import { logout } from "../../redux/features/auth/authSlice";
 import { FaBars, FaXmark } from "react-icons/fa6";
 import { motion, useAnimationControls } from "framer-motion";
+import NavUser from "./NavUser";
 
 const Navbar = () => {
   const controlNavItemContainer = useAnimationControls();
@@ -47,40 +48,26 @@ const Navbar = () => {
                 {" "}
                 <Logo></Logo>
               </NavLink>
-              <nav className="flex gap-5 font-roboto tracking-widest ">
-                <div className="relative group">
-                  <NavLink to="/supplies">All Supplies</NavLink>
-                  <div className="w-full h-0.5 group-hover:bg-white absolute left-0 -bottom-9 transition-all duration-500"></div>
-                </div>
-                <div className="relative group">
-                  <NavLink to="/leaderboard">LeaderBoard</NavLink>
-                  <div className="w-full h-0.5 group-hover:bg-white absolute left-0 -bottom-9 transition-all duration-500"></div>
-                </div>
-                <div className="relative group">
-                  <NavLink to="/community">Community</NavLink>
-                  <div className="w-full h-0.5 group-hover:bg-white absolute left-0 -bottom-9 transition-all duration-500"></div>
-                </div>
-
-                {!user ? (
+              {/* Nav segment */}
+              <div className="flex justify-center items-center gap-5">
+                <nav className="flex gap-5 font-roboto tracking-widest ">
                   <div className="relative group">
-                    <NavLink to="/login">Login</NavLink>
+                    <NavLink to="/supplies">All Supplies</NavLink>
                     <div className="w-full h-0.5 group-hover:bg-white absolute left-0 -bottom-9 transition-all duration-500"></div>
                   </div>
-                ) : (
-                  <>
-                    <div className="relative group">
-                      <NavLink to="/dashboard">Dashboard</NavLink>
-                      <div className="w-full h-0.5 group-hover:bg-white absolute left-0 -bottom-9 transition-all duration-500"></div>
-                    </div>
-                    <div className="relative group">
-                      <NavLink onClick={handleLogout} to="#">
-                        Logout
-                      </NavLink>
-                      <div className="w-full h-0.5 group-hover:bg-white absolute left-0 -bottom-9 transition-all duration-500"></div>
-                    </div>
-                  </>
-                )}
-              </nav>
+                  <div className="relative group">
+                    <NavLink to="/leaderboard">LeaderBoard</NavLink>
+                    <div className="w-full h-0.5 group-hover:bg-white absolute left-0 -bottom-9 transition-all duration-500"></div>
+                  </div>
+                  <div className="relative group">
+                    <NavLink to="/community">Community</NavLink>
+                    <div className="w-full h-0.5 group-hover:bg-white absolute left-0 -bottom-9 transition-all duration-500"></div>
+                  </div>
+                </nav>
+
+                {/* User segment */}
+                <NavUser handleLogout={handleLogout}></NavUser>
+              </div>
             </div>
           </Container>
         </div>

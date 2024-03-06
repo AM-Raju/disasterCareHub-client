@@ -1,8 +1,6 @@
 import { useState } from "react";
 import CommunityPost from "../components/community/CommunityPost";
 import CommunitySidebar from "../components/community/CommunitySidebar";
-import { useAppSelector } from "../redux/hook";
-import { useGetSupplyQuery } from "../redux/features/addSupply/supplyApi";
 
 const Community = () => {
   const [supplyData, setSupplyData] = useState(null);

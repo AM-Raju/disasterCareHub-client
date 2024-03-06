@@ -13,6 +13,8 @@ import DBCreateSupply from "../pages/DBCreateSupply";
 import ProtectedRoute from "./ProtectedRoute";
 import LeaderBoard from "../pages/leaderBoard/LeaderBoard";
 import Community from "../pages/Community";
+import DonorRoute from "./DonorRoute";
+import DBAllUsers from "../pages/DBAllUsers";
 
 const router = createBrowserRouter([
   {
@@ -68,8 +70,16 @@ const router = createBrowserRouter([
         element: <DBHome></DBHome>,
       },
       {
+        path: "all-users",
+        element: <DBAllUsers></DBAllUsers>,
+      },
+      {
         path: "create-supply",
-        element: <DBCreateSupply></DBCreateSupply>,
+        element: (
+          <DonorRoute>
+            <DBCreateSupply></DBCreateSupply>
+          </DonorRoute>
+        ),
       },
       {
         path: "all-supplies",

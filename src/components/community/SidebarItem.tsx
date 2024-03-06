@@ -1,4 +1,4 @@
-import { setSupplyId } from "../../redux/features/addSupply/supplyIdSlice";
+import { setSupplyId } from "../../redux/features/supply/supplyIdSlice";
 import { useAppDispatch } from "../../redux/hook";
 
 const SidebarItem = ({ item }) => {

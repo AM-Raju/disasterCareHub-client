@@ -1,11 +1,13 @@
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { imageUpload } from "../api/utils";
-import { useCreateSupplyMutation } from "../redux/features/addSupply/supplyApi";
+import { useCreateSupplyMutation } from "../redux/features/supply/supplyApi";
 import toast from "react-hot-toast";
+import { useAppSelector } from "../redux/hook";
 
 const DBCreateSupply = () => {
   const [createSupply] = useCreateSupplyMutation();
   const { register, handleSubmit, reset } = useForm<FieldValues>();
+  const user = useAppSelector((state) => state.auth.user);
 
   const handleCreateSupply: SubmitHandler<FieldValues> = (data) => {
     try {
@@ -17,7 +19,14 @@ const DBCreateSupply = () => {
           const imageUrl = data.data.display_url;
 
           if (imageUrl) {
-            const newSupply = { title, category, amount, description, imageUrl };
+            const newSupply = {
+              title,
+              category,
+              amount,
+              description,
+              imageUrl,
+              donatedBy: user?.email,
+            };
 
             const res: any = await createSupply(newSupply);
 

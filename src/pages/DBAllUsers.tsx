@@ -1,16 +1,14 @@
-import { useGetSuppliesQuery } from "../redux/features/supply/supplyApi";
-import TableRow from "../components/DBAllSupplies/TableRow";
 import Spinner from "../components/ui/Spinner";
-import { TSupply } from "../types/supply.types";
-import DeleteModal from "../components/modals/DeleteModal";
-import UpdateSupplyModal from "../components/modals/UpdateSupplyModal";
+import UserTableRow from "../components/DBAllUsers/UserTableRow";
+import { useGetAllUsersQuery } from "../redux/features/users/usersApi";
 
-const DBAllSupplies = () => {
-  const { data, isLoading } = useGetSuppliesQuery(undefined);
+const DBAllUsers = () => {
+  const { data, isLoading } = useGetAllUsersQuery(undefined);
 
   if (isLoading) {
     return <Spinner></Spinner>;
   }
+
   return (
     <div className="max-w-7xl mx-auto  pt-12">
       <h1 className=" text-amber-500 border-b-2  font-poppins text-5xl lg:text-6xl font-semibold text-center ">
@@ -23,28 +21,27 @@ const DBAllSupplies = () => {
             <tr className="border-b-2 border-amber-500 text-amber-500">
               <th>SN</th>
               <th>Image</th>
-              <th>Donor</th>
-              <th>Title</th>
-              <th>Category</th>
-              <th>Amount</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Role</th>
+              <th>Change Role</th>
               <th>Update</th>
               <th>Delete</th>
-              <th>Add Supply</th>
             </tr>
           </thead>
           <tbody>
             {/* row 1 */}
 
-            {data.map((supply: TSupply, index: number) => (
-              <TableRow key={supply?._id} index={index} supply={supply}></TableRow>
+            {data.map((user, index: number) => (
+              <UserTableRow key={user?._id} index={index} user={user}></UserTableRow>
             ))}
           </tbody>
         </table>
       </div>
-      <DeleteModal></DeleteModal>
-      <UpdateSupplyModal></UpdateSupplyModal>
+      {/* <DeleteModal></DeleteModal> */}
+      {/* <UpdateSupplyModal></UpdateSupplyModal> */}
     </div>
   );
 };
 
-export default DBAllSupplies;
+export default DBAllUsers;

@@ -5,11 +5,14 @@ import toast from "react-hot-toast";
 import { jwtDecode } from "jwt-decode";
 import { useAppDispatch } from "../redux/hook";
 import { setUser } from "../redux/features/auth/authSlice";
+import { useGetUserQuery } from "../redux/features/users/usersApi";
+import { setRole } from "../redux/features/users/roleSlice";
 
 const Login = () => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const [login] = useLoginMutation();
+
   const { register, handleSubmit, reset } = useForm<FieldValues>();
 
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
@@ -18,7 +21,7 @@ const Login = () => {
 
       if (res?.data?.success) {
         const decodedUser = jwtDecode(res?.data?.token);
-        console.log("decoded user", decodedUser);
+        // console.log("decoded user", decodedUser);
 
         dispatch(setUser({ user: decodedUser, token: res?.data?.token }));
 

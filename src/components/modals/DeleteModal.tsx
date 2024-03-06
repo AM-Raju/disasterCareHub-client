@@ -1,6 +1,6 @@
 import { useAppDispatch, useAppSelector } from "../../redux/hook";
-import { closeDeleteModal } from "../../redux/features/deleteModalSlice";
-import { useDeleteSupplyMutation } from "../../redux/features/addSupply/supplyApi";
+import { closeDeleteModal } from "../../redux/features/supply/deleteModalSlice";
+import { useDeleteSupplyMutation } from "../../redux/features/supply/supplyApi";
 import { FaXmark } from "react-icons/fa6";
 
 const DeleteModal = () => {

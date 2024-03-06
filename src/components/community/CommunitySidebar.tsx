@@ -1,4 +1,4 @@
-import { useGetSuppliesQuery } from "../../redux/features/addSupply/supplyApi";
+import { useGetSuppliesQuery } from "../../redux/features/supply/supplyApi";
 import SidebarItem from "./SidebarItem";
 
 const CommunitySidebar = () => {

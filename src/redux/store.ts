@@ -12,10 +12,11 @@ import {
 } from "redux-persist";
 
 import storage from "redux-persist/lib/storage";
-import deleteModalReducer from "./features/deleteModalSlice";
-import updateSupplyModalReducer from "./features/updateSupplyModalSlice";
+import deleteModalReducer from "./features/supply/deleteModalSlice";
+import updateSupplyModalReducer from "./features/supply/updateSupplyModalSlice";
 import authReducer from "./features/auth/authSlice";
-import supplyIdReducer from "./features/addSupply/supplyIdSlice";
+import supplyIdReducer from "./features/supply/supplyIdSlice";
+import roleReducer from "./features/users/roleSlice";
 
 const authPersistedUser = {
   key: "auth",
@@ -32,12 +33,19 @@ const updateSupplyModalPersistConfig = {
   storage,
 };
 
+const rolePersistConfig = {
+  key: "role",
+  storage,
+};
+
 const authPersistedReducer = persistReducer(authPersistedUser, authReducer);
 const deleteModalPersistedReducer = persistReducer(deleteModalPersistConfig, deleteModalReducer);
 const updateSupplyModalPersistedReducer = persistReducer(
   updateSupplyModalPersistConfig,
   updateSupplyModalReducer
 );
+
+const rolePersistReducer = persistReducer(rolePersistConfig, roleReducer);
 
 export const store = configureStore({
   reducer: {
@@ -55,6 +63,9 @@ export const store = configureStore({
 
     // localState for supply id
     supplyId: supplyIdReducer,
+
+    // local state for user role
+    role: rolePersistReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
