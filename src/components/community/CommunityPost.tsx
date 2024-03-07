@@ -2,11 +2,17 @@ import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { useGetSupplyQuery, useUpdatePostMutation } from "../../redux/features/supply/supplyApi";
 import { useAppSelector } from "../../redux/hook";
 import { useEffect, useState } from "react";
+import { useGetUserQuery } from "../../redux/features/users/usersApi";
+import { Link } from "react-router-dom";
 
 const CommunityPost = () => {
+  const [postData, setPostData] = useState([]);
   const [id, setId] = useState("");
   const supplyId = useAppSelector((state) => state.supplyId.id);
   const user = useAppSelector((state) => state.auth.user);
+  const { data: userInfo } = useGetUserQuery(user?.email);
+
+  const name = userInfo?.name;
 
   const [publishPost] = useUpdatePostMutation();
 
@@ -16,18 +22,29 @@ const CommunityPost = () => {
     }
   }, [supplyId]);
 
-  const { data } = useGetSupplyQuery(id);
+  const { data, isLoading } = useGetSupplyQuery(id);
 
-  const email = user?.email;
+  useEffect(() => {
+    if (!isLoading) {
+      setPostData(data?.post);
+    }
+  }, [data]);
 
   /* Handling post form */
   const { register, handleSubmit, reset } = useForm<FieldValues>();
 
   const handlePost: SubmitHandler<FieldValues> = async (data) => {
-    const { post } = data;
-    const newPost = { post, email };
+    try {
+      const { post } = data;
+      const newPost = { post, name };
 
-    const res: any = await publishPost({ id, newPost });
+      const res: any = await publishPost({ id, newPost });
+      if (res?.data?.modifiedCount > 0) {
+        reset();
+      }
+    } catch (error) {
+      console.log("Something went wrong");
+    }
   };
 
   return (
@@ -51,8 +68,9 @@ const CommunityPost = () => {
           </div>
         </div>
       </div>
+
       {/* Post section */}
-      <div className="max-w-3xl bg-zinc-200 mx-auto min-h-96">
+      <div className="max-w-3xl bg-zinc-200 mx-auto min-h-96 sticky overflow-auto pb-5">
         <form onSubmit={handleSubmit(handlePost)} className="w-10/12 mx-auto pt-5">
           <div className="p-3 bg-white rounded-lg flex justify-center items-center">
             <textarea
@@ -61,10 +79,31 @@ const CommunityPost = () => {
               placeholder="Your thought"
             ></textarea>
           </div>
-          <button className="px-4 py-2 mt-2 bg-amber-500 hover:bg-amber-600 rounded-lg float-end transition-all duration-300">
-            Share Thought
-          </button>
+          {user ? (
+            <button className="px-4 py-2 mt-2 bg-amber-500 hover:bg-amber-600 rounded-lg float-end transition-all duration-300">
+              Share Thought
+            </button>
+          ) : (
+            <Link to="/login">
+              <button className="px-4 py-2 mt-2 bg-amber-500 hover:bg-amber-600 rounded-lg float-end transition-all duration-300">
+                Login to Share
+              </button>
+            </Link>
+          )}
         </form>
+        {/* Posted posts */}
+        <div className="p-5 space-y-2  mt-10">
+          {postData &&
+            postData?.length > 0 &&
+            [...postData].reverse().map((item: { post: string; name: string }, index: number) => (
+              <div key={index} className="border border-amber-500 p-3 bg-white rounded-xl">
+                <p className="bg-gray-200 p-2 rounded-lg">{item.post}</p>
+                <p className="text-end text-xs py-2 text-amber-600 font-semibold tracking-wider">
+                  - {item.name}
+                </p>
+              </div>
+            ))}
+        </div>
       </div>
     </div>
   );

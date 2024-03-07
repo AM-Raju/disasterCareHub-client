@@ -5,8 +5,7 @@ import toast from "react-hot-toast";
 import { jwtDecode } from "jwt-decode";
 import { useAppDispatch } from "../redux/hook";
 import { setUser } from "../redux/features/auth/authSlice";
-import { useGetUserQuery } from "../redux/features/users/usersApi";
-import { setRole } from "../redux/features/users/roleSlice";
+import { removeSupplyId } from "../redux/features/supply/supplyIdSlice";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -24,6 +23,8 @@ const Login = () => {
         // console.log("decoded user", decodedUser);
 
         dispatch(setUser({ user: decodedUser, token: res?.data?.token }));
+
+        // dispatch(removeSupplyId());
 
         toast.success(res.data.message);
         reset();

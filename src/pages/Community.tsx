@@ -1,20 +1,24 @@
-import { useState } from "react";
 import CommunityPost from "../components/community/CommunityPost";
 import CommunitySidebar from "../components/community/CommunitySidebar";
+import CommunityWall from "../components/community/CommunityWall";
+import { useAppSelector } from "../redux/hook";
 
 const Community = () => {
-  const [supplyData, setSupplyData] = useState(null);
+  const user = useAppSelector((state) => state.auth.user);
+  const supplyId = useAppSelector((state) => state.supplyId.id);
+
+  console.log(supplyId);
 
   return (
     <div className="max-w-[1280px] mx-auto">
       <div className="mt-24 grid grid-cols-12 h-[calc(100%-64px)] min-h-[calc(100vh-160px)]">
-        <CommunitySidebar></CommunitySidebar>
+        <div className="col-span-3 h-full bg-slate-800">
+          <CommunitySidebar></CommunitySidebar>
+        </div>
         <div className="col-span-9">
-          {supplyData ? (
+          {!supplyId ? (
             /* Here goes the community wall or home */
-            <div className="w-full h-96 bg-green-400 flex items-center justify-center text-2xl">
-              <h3>this is community wall or home</h3>
-            </div>
+            <CommunityWall></CommunityWall>
           ) : (
             <CommunityPost></CommunityPost>
           )}
