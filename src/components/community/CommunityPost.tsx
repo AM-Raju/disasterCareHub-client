@@ -1,12 +1,34 @@
-import { useGetSupplyQuery } from "../../redux/features/supply/supplyApi";
+import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
+import { useGetSupplyQuery, useUpdatePostMutation } from "../../redux/features/supply/supplyApi";
 import { useAppSelector } from "../../redux/hook";
+import { useEffect, useState } from "react";
 
 const CommunityPost = () => {
+  const [id, setId] = useState("");
   const supplyId = useAppSelector((state) => state.supplyId.id);
+  const user = useAppSelector((state) => state.auth.user);
 
-  const { data } = useGetSupplyQuery(supplyId);
+  const [publishPost] = useUpdatePostMutation();
 
-  /* Handling f */
+  useEffect(() => {
+    if (supplyId) {
+      setId(supplyId);
+    }
+  }, [supplyId]);
+
+  const { data } = useGetSupplyQuery(id);
+
+  const email = user?.email;
+
+  /* Handling post form */
+  const { register, handleSubmit, reset } = useForm<FieldValues>();
+
+  const handlePost: SubmitHandler<FieldValues> = async (data) => {
+    const { post } = data;
+    const newPost = { post, email };
+
+    const res: any = await publishPost({ id, newPost });
+  };
 
   return (
     <div className="bg-amber-500 w-full h-full">
@@ -31,12 +53,12 @@ const CommunityPost = () => {
       </div>
       {/* Post section */}
       <div className="max-w-3xl bg-zinc-200 mx-auto min-h-96">
-        <form className="w-10/12 mx-auto pt-5">
+        <form onSubmit={handleSubmit(handlePost)} className="w-10/12 mx-auto pt-5">
           <div className="p-3 bg-white rounded-lg flex justify-center items-center">
             <textarea
               className="w-full p-3 mx-auto outline-none resize-none min-h-24 rounded-lg focus:bg-slate-200 my-auto"
-              name=""
-              id=""
+              {...register("post")}
+              placeholder="Your thought"
             ></textarea>
           </div>
           <button className="px-4 py-2 mt-2 bg-amber-500 hover:bg-amber-600 rounded-lg float-end transition-all duration-300">

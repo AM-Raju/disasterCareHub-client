@@ -7,6 +7,7 @@ import { logout } from "../../redux/features/auth/authSlice";
 import { FaBars, FaXmark } from "react-icons/fa6";
 import { motion, useAnimationControls } from "framer-motion";
 import NavUser from "./NavUser";
+import { removeSupplyId } from "../../redux/features/supply/supplyIdSlice";
 
 const Navbar = () => {
   const controlNavItemContainer = useAnimationControls();
@@ -18,6 +19,7 @@ const Navbar = () => {
 
   const handleLogout = () => {
     dispatch(logout());
+    dispatch(removeSupplyId());
   };
 
   const handleToggleNav = () => {

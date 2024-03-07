@@ -1,7 +1,12 @@
 import { setSupplyId } from "../../redux/features/supply/supplyIdSlice";
 import { useAppDispatch } from "../../redux/hook";
+import { TSupply } from "../../types/supply.types";
 
-const SidebarItem = ({ item }) => {
+type TSidebarItemProps = {
+  item: TSupply;
+};
+
+const SidebarItem = ({ item }: TSidebarItemProps) => {
   const dispatch = useAppDispatch();
   const { _id, title, imageUrl } = item;
 

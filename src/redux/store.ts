@@ -33,6 +33,11 @@ const updateSupplyModalPersistConfig = {
   storage,
 };
 
+const supplyIdPersistConfig = {
+  key: "supplyId",
+  storage,
+};
+
 const rolePersistConfig = {
   key: "role",
   storage,
@@ -45,6 +50,7 @@ const updateSupplyModalPersistedReducer = persistReducer(
   updateSupplyModalReducer
 );
 
+const supplyIdPersistReducer = persistReducer(supplyIdPersistConfig, supplyIdReducer);
 const rolePersistReducer = persistReducer(rolePersistConfig, roleReducer);
 
 export const store = configureStore({
@@ -62,7 +68,7 @@ export const store = configureStore({
     auth: authPersistedReducer,
 
     // localState for supply id
-    supplyId: supplyIdReducer,
+    supplyId: supplyIdPersistReducer,
 
     // local state for user role
     role: rolePersistReducer,

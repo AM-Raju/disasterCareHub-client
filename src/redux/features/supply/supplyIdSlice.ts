@@ -15,9 +15,12 @@ export const supplyIdSlice = createSlice({
     setSupplyId: (state, action) => {
       state.id = action?.payload;
     },
+    removeSupplyId: (state) => {
+      state.id = "";
+    },
   },
 });
 
-export const { setSupplyId } = supplyIdSlice.actions;
+export const { setSupplyId, removeSupplyId } = supplyIdSlice.actions;
 
 export default supplyIdSlice.reducer;

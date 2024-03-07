@@ -43,6 +43,20 @@ const supplyApi = baseApi.injectEndpoints({
       providesTags: ["supply"],
     }),
 
+    // update post into supply
+    updatePost: builder.mutation({
+      query: (postInfo) => {
+        console.log("redux update post", postInfo);
+
+        const { supplyId, newPost } = postInfo;
+        return {
+          url: `/supply/${supplyId}`,
+          method: "PATCH",
+          body: newPost,
+        };
+      },
+    }),
+
     // Delete supply
     deleteSupply: builder.mutation({
       query: (id) => {
@@ -60,5 +74,6 @@ export const {
   useGetSupplyQuery,
   useDeleteSupplyMutation,
   useGetSuppliesQuery,
+  useUpdatePostMutation,
   useCreateSupplyMutation,
 } = supplyApi;
