@@ -56,6 +56,16 @@ const supplyApi = baseApi.injectEndpoints({
       invalidatesTags: ["supply"],
     }),
 
+    // Leaderboard data
+    leaderBoard: builder.query({
+      query: () => {
+        return {
+          url: "/leaderboard",
+          method: "GET",
+        };
+      },
+    }),
+
     // Delete supply
     deleteSupply: builder.mutation({
       query: (id) => {
@@ -71,8 +81,9 @@ const supplyApi = baseApi.injectEndpoints({
 
 export const {
   useGetSupplyQuery,
-  useDeleteSupplyMutation,
   useGetSuppliesQuery,
   useUpdatePostMutation,
   useCreateSupplyMutation,
+  useLeaderBoardQuery,
+  useDeleteSupplyMutation,
 } = supplyApi;

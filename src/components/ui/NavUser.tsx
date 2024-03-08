@@ -28,7 +28,7 @@ const NavUser = ({ handleLogout }) => {
   }, []);
 
   return (
-    <div className="dropdown dropdown-end" ref={dropdownRef}>
+    <div className="dropdown dropdown-end " ref={dropdownRef}>
       <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
         <div onClick={handleDropdown} className=" rounded-full flex items-center gap-1">
           <div>
@@ -46,7 +46,7 @@ const NavUser = ({ handleLogout }) => {
       </div>
       <ul
         tabIndex={0}
-        className={`menu menu-sm dropdown-content mt-8 z-[1]  shadow bg-amber-500 rounded-b-md w-44 flex flex-col  px-3 py-2 absolute ${
+        className={`menu menu-sm dropdown-content mt-8  shadow bg-amber-500 rounded-b-md w-44 flex flex-col  px-3 py-2 absolute z-[999]  ${
           !isOpen ? "hidden" : null
         }`}
       >
