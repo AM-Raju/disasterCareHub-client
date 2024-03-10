@@ -66,6 +66,10 @@ const Navbar = () => {
                     <div className="w-full h-0.5 group-hover:bg-white absolute left-0 -bottom-9 transition-all duration-500"></div>
                   </div>
                   <div className="relative group">
+                    <NavLink to="/about-us">About Us</NavLink>
+                    <div className="w-full h-0.5 group-hover:bg-white absolute left-0 -bottom-9 transition-all duration-500"></div>
+                  </div>
+                  <div className="relative group">
                     <NavLink to="/volunteer">Volunteer</NavLink>
                     <div className="w-full h-0.5 group-hover:bg-white absolute left-0 -bottom-9 transition-all duration-500"></div>
                   </div>
