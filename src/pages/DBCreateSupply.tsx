@@ -48,7 +48,10 @@ const DBCreateSupply = () => {
         Create A Supply
       </h1>
       <div className="overflow-x-auto  border border-amber-500 p-10 mt-16">
-        <form className=" space-y-5" onSubmit={handleSubmit(handleCreateSupply)}>
+        <form
+          className=" space-y-5"
+          onSubmit={handleSubmit(handleCreateSupply)}
+        >
           <input
             className="outline-none py-2 px-3 w-full bg-transparent border border-amber-500 focus:text-black focus:bg-white  "
             type="text"
@@ -87,7 +90,12 @@ const DBCreateSupply = () => {
             >
               Upload Supply Image
             </label>
-            <input id="file" className="hidden" {...register("image")} type="file" />
+            <input
+              id="file"
+              className="hidden"
+              {...register("image")}
+              type="file"
+            />
           </div>
 
           <div className="w-full pt-5">

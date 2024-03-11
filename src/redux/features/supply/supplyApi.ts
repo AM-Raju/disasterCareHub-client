@@ -11,6 +11,7 @@ const supplyApi = baseApi.injectEndpoints({
           body: supply,
         };
       },
+
       invalidatesTags: ["supply"],
     }),
 

@@ -5,7 +5,13 @@ import toast from "react-hot-toast";
 import { jwtDecode } from "jwt-decode";
 import { useAppDispatch } from "../redux/hook";
 import { setUser } from "../redux/features/auth/authSlice";
-import { removeSupplyId } from "../redux/features/supply/supplyIdSlice";
+import { setRole } from "../redux/features/users/roleSlice";
+
+type TDecodedUser = {
+  email: string;
+  iat: number;
+  exp: number;
+};
 
 const Login = () => {
   const navigate = useNavigate();
@@ -19,8 +25,13 @@ const Login = () => {
       const res: any = await login(data);
 
       if (res?.data?.success) {
-        const decodedUser = jwtDecode(res?.data?.token);
+        const decodedUser: TDecodedUser = jwtDecode(res?.data?.token);
         // console.log("decoded user", decodedUser);
+
+        // Setting role to the local state
+        fetch(`http://localhost:5000/api/v1/users/${decodedUser?.email}`)
+          .then((res) => res.json())
+          .then((data) => dispatch(setRole(data?.role)));
 
         dispatch(setUser({ user: decodedUser, token: res?.data?.token }));
 

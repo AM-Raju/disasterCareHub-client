@@ -4,11 +4,7 @@ const volunteerApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
     // Create volunteer
     createVolunteer: builder.mutation({
-      query: ({ volunteerInfo }) => {
-        
-        
-        console.log("raju",volunteerInfo);
-        
+      query: (volunteerInfo) => {
         return {
           url: "/create-volunteer",
           method: "POST",
