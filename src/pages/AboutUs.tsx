@@ -1,6 +1,12 @@
+import VolunteerCard from "../components/cards/VolunteerCard";
 import Container from "../layouts/Container";
+import { useGetVolunteersQuery } from "../redux/features/volunteer/volunteerApi";
+import { TVolunteer } from "../types/volunteer.types";
 
 const AboutUs = () => {
+  const { data, isLoading } = useGetVolunteersQuery(undefined);
+  console.log(data);
+
   return (
     <Container>
       <div className="min-h-[calc(100vh-64px)] pt-32">
@@ -34,7 +40,15 @@ const AboutUs = () => {
         <h3 className="text-center mt-16 text-4xl font-semibold">
           Our Heart! <span className="text-amber-500">Volunteers</span>
         </h3>
-        <div></div>
+        <div className="max-w-6xl mx-auto py-10 flex flex-wrap gap-6 justify-center items-center ">
+          {!isLoading &&
+            data.map((volunteer: TVolunteer) => (
+              <VolunteerCard
+                key={volunteer?._id}
+                volunteer={volunteer}
+              ></VolunteerCard>
+            ))}
+        </div>
       </div>
     </Container>
   );
