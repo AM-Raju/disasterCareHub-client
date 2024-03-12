@@ -1,5 +1,6 @@
 import { FaHome } from "react-icons/fa";
 import { FaLeftLong, FaList, FaPlus, FaUsers } from "react-icons/fa6";
+import { BiMessageAltEdit } from "react-icons/bi";
 import { NavLink } from "react-router-dom";
 
 const Sidebar = () => {
@@ -50,6 +51,17 @@ const Sidebar = () => {
           >
             <FaList className="shrink-0 size-6"></FaList>
             <span className="truncate">All Supplies</span>
+          </NavLink>
+          <NavLink
+            className={({ isActive }) =>
+              `w-full px-3 py-2  hover:bg-amber-500 transition-all duration-300 flex gap-3 items-center truncate ${
+                isActive ? "bg-amber-500" : "bg-gray-300"
+              }`
+            }
+            to="/dashboard/create-testimonial"
+          >
+            <BiMessageAltEdit className="shrink-0 size-6" />
+            <span className="truncate">Create Testimonial</span>
           </NavLink>
         </div>
 

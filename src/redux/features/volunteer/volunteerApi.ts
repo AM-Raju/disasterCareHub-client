@@ -22,6 +22,7 @@ const volunteerApi = baseApi.injectEndpoints({
           method: "GET",
         };
       },
+      providesTags: ["volunteer"],
     }),
   }),
 });

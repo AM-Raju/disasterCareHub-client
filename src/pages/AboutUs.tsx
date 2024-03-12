@@ -4,8 +4,8 @@ import { useGetVolunteersQuery } from "../redux/features/volunteer/volunteerApi"
 import { TVolunteer } from "../types/volunteer.types";
 
 const AboutUs = () => {
-  const { data, isLoading } = useGetVolunteersQuery(undefined);
-  console.log(data);
+  const { data: volunteers, isLoading } = useGetVolunteersQuery(undefined);
+  console.log(volunteers);
 
   return (
     <Container>
@@ -37,18 +37,22 @@ const AboutUs = () => {
             aspernatur. Eius doloremque possimus labore libero.
           </p>
         </div>
-        <h3 className="text-center mt-16 text-4xl font-semibold">
-          Our Heart! <span className="text-amber-500">Volunteers</span>
-        </h3>
-        <div className="max-w-6xl mx-auto py-10 flex flex-wrap gap-6 justify-center items-center ">
-          {!isLoading &&
-            data.map((volunteer: TVolunteer) => (
-              <VolunteerCard
-                key={volunteer?._id}
-                volunteer={volunteer}
-              ></VolunteerCard>
-            ))}
-        </div>
+        {volunteers?.length > 0 && (
+          <>
+            <h3 className="text-center mt-16 text-4xl font-semibold">
+              Our Heart! <span className="text-amber-500">Volunteers</span>
+            </h3>
+            <div className="max-w-6xl mx-auto py-10 flex flex-wrap gap-6 justify-center items-center ">
+              {!isLoading &&
+                volunteers.map((volunteer: TVolunteer) => (
+                  <VolunteerCard
+                    key={volunteer?._id}
+                    volunteer={volunteer}
+                  ></VolunteerCard>
+                ))}
+            </div>
+          </>
+        )}
       </div>
     </Container>
   );

@@ -17,6 +17,7 @@ import DonorRoute from "./DonorRoute";
 import DBAllUsers from "../pages/DBAllUsers";
 import Volunteer from "../pages/Volunteer";
 import AboutUs from "../pages/AboutUs";
+import DBCreateTestimonial from "../pages/DBCreateTestimonial";
 
 const router = createBrowserRouter([
   {
@@ -51,7 +52,8 @@ const router = createBrowserRouter([
       {
         path: "/supplies/:id",
         element: <SupplyDetails></SupplyDetails>,
-        loader: ({ params }) => fetch(`http://localhost:5000/supply/${params.id}`),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/supply/${params.id}`),
       },
       {
         path: "/login",
@@ -94,6 +96,14 @@ const router = createBrowserRouter([
       {
         path: "all-supplies",
         element: <DBAllSupplies></DBAllSupplies>,
+      },
+      {
+        path: "create-testimonial",
+        element: (
+          <DonorRoute>
+            <DBCreateTestimonial></DBCreateTestimonial>
+          </DonorRoute>
+        ),
       },
     ],
   },
