@@ -41,11 +41,12 @@ const Stats = () => {
         <div
           onMouseEnter={fillBg1}
           onMouseLeave={emptyBg1}
-          className=" border border-amber-500 flex flex-col relative  justify-center items-center py-7  overflow-hidden "
+          className={` border border-amber-500 flex flex-col relative  justify-center items-center py-7  overflow-hidden`}
         >
           <motion.div
             animate={controlStartCardBg1}
-            className=" -translate-x-80 w-full h-full bg-amber-500 absolute -z-50"
+            className={` -translate-x-80 w-full h-full "bg-amber-500"
+              absolute -z-50`}
           ></motion.div>
 
           <p className="text-lg mb-2">Foods</p>

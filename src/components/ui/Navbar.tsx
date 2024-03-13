@@ -8,13 +8,16 @@ import { FaBars, FaXmark } from "react-icons/fa6";
 import { motion, useAnimationControls } from "framer-motion";
 import NavUser from "./NavUser";
 import { removeSupplyId } from "../../redux/features/supply/supplyIdSlice";
+import { BsMoonFill, BsSun } from "react-icons/bs";
+import { toggleTheme } from "../../redux/features/theme/themeSlice";
 
 const Navbar = () => {
   const controlNavItemContainer = useAnimationControls();
+  const dispatch = useAppDispatch();
+  const darkMode = useAppSelector((state) => state.theme.darkMode);
 
   const [toggleNav, setToggleNav] = useState(false);
 
-  const dispatch = useAppDispatch();
   const user = useAppSelector((state) => state.auth.user);
 
   const handleLogout = () => {
@@ -37,6 +40,10 @@ const Navbar = () => {
     }
 
     setToggleNav(!toggleNav);
+  };
+
+  const handleTheme = () => {
+    dispatch(toggleTheme());
   };
 
   return (
@@ -77,6 +84,15 @@ const Navbar = () => {
 
                 {/* User segment */}
                 <NavUser handleLogout={handleLogout}></NavUser>
+
+                {/* Toggle Theme */}
+                <button onClick={handleTheme}>
+                  {darkMode ? (
+                    <BsSun className="size-5" />
+                  ) : (
+                    <BsMoonFill className="size-5" />
+                  )}
+                </button>
               </div>
             </div>
           </Container>

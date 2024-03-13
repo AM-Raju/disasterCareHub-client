@@ -6,6 +6,7 @@ import { Pagination } from "swiper/modules";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
+import { TTestimonial } from "../../../types/testimonial.types";
 
 const TestimonialSliders = () => {
   const { data: testimonials, isLoading } = useGetTestimonialsQuery(undefined);
@@ -20,8 +21,8 @@ const TestimonialSliders = () => {
         className="mySwiper"
       >
         {!isLoading &&
-          testimonials.map((testimonialData) => (
-            <SwiperSlide>
+          testimonials.map((testimonialData: TTestimonial) => (
+            <SwiperSlide key={testimonialData?._id}>
               <TestimonialSliderBody
                 key={testimonialData?._id}
                 testimonialData={testimonialData}

@@ -17,6 +17,7 @@ import updateSupplyModalReducer from "./features/supply/updateSupplyModalSlice";
 import authReducer from "./features/auth/authSlice";
 import supplyIdReducer from "./features/supply/supplyIdSlice";
 import roleReducer from "./features/users/roleSlice";
+import themeReducer from "./features/theme/themeSlice";
 
 const authPersistedUser = {
   key: "auth",
@@ -43,15 +44,27 @@ const rolePersistConfig = {
   storage,
 };
 
+const themePersistConfig = {
+  key: "theme",
+  storage,
+};
+
 const authPersistedReducer = persistReducer(authPersistedUser, authReducer);
-const deleteModalPersistedReducer = persistReducer(deleteModalPersistConfig, deleteModalReducer);
+const deleteModalPersistedReducer = persistReducer(
+  deleteModalPersistConfig,
+  deleteModalReducer
+);
 const updateSupplyModalPersistedReducer = persistReducer(
   updateSupplyModalPersistConfig,
   updateSupplyModalReducer
 );
 
-const supplyIdPersistReducer = persistReducer(supplyIdPersistConfig, supplyIdReducer);
+const supplyIdPersistReducer = persistReducer(
+  supplyIdPersistConfig,
+  supplyIdReducer
+);
 const rolePersistReducer = persistReducer(rolePersistConfig, roleReducer);
+const themePersistReducer = persistReducer(themePersistConfig, themeReducer);
 
 export const store = configureStore({
   reducer: {
@@ -72,6 +85,9 @@ export const store = configureStore({
 
     // local state for user role
     role: rolePersistReducer,
+
+    // local state for theme
+    theme: themePersistReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
