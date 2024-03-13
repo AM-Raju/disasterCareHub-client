@@ -4,13 +4,10 @@ import CommunityWall from "../components/community/CommunityWall";
 import { useAppSelector } from "../redux/hook";
 
 const Community = () => {
-  const user = useAppSelector((state) => state.auth.user);
   const supplyId = useAppSelector((state) => state.supplyId.id);
 
-  console.log(supplyId);
-
   return (
-    <div className="max-w-[1280px] mx-auto">
+    <div className="max-w-[1280px] mx-auto -z-10">
       <div className="mt-24 grid grid-cols-12 h-[calc(100%-64px)] min-h-[calc(100vh-160px)]">
         <div className="col-span-3 h-full bg-slate-800">
           <CommunitySidebar></CommunitySidebar>

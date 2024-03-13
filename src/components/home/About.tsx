@@ -1,6 +1,6 @@
 import Container from "../../layouts/Container";
 
-const AboutUs = () => {
+const About = () => {
   return (
     <div className="mt-36 relative">
       <div className="group max-w-[1280px] mx-auto">
@@ -10,7 +10,11 @@ const AboutUs = () => {
         <h1 className="text-6xl lg:text-9xl font-bold text-white  font-poppins absolute top-8 left-[calc(50%-140px)] lg:left-[calc(50%-300px)] opacity-10 group-hover:opacity-40 transition-all duration-500">
           About Us
         </h1>
-        <img className="w-full" src={"https://i.ibb.co/znCRM8H/about-Us-Bg.jpg"} alt="" />
+        <img
+          className="w-full"
+          src={"https://i.ibb.co/znCRM8H/about-Us-Bg.jpg"}
+          alt=""
+        />
       </div>
       <Container>
         <div className=" max-w-[90%] xl:max-w-[80%] mx-auto bg-blue-400 text-gray-800 relative -top-24 lg:-top-52 grid grid-cols-1 lg:grid-cols-2 gap-x-5 lg:p-10 p-5">
@@ -20,7 +24,7 @@ const AboutUs = () => {
               viewBox="0 0 24 24"
               strokeWidth="1.5"
               stroke="currentColor"
-              className=" size-10  shrink-0  group-hover:text-white transition-all duration-500"
+              className="size-8 lg:size-8 lg:size-10  shrink-0  group-hover:text-white transition-all duration-500"
             >
               <path d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0" />
             </svg>
@@ -29,8 +33,8 @@ const AboutUs = () => {
                 Disaster Alert and Activation
               </h3>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro vel tempora tenetur
-                quam!
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro
+                vel tempora tenetur quam!
               </p>
             </div>
           </div>
@@ -40,7 +44,7 @@ const AboutUs = () => {
               viewBox="0 0 24 24"
               strokeWidth="1.5"
               stroke="currentColor"
-              className=" size-10  shrink-0 group-hover:text-white transition-all duration-500"
+              className=" size-8 lg:size-10  shrink-0 group-hover:text-white transition-all duration-500"
             >
               <path
                 strokeLinecap="round"
@@ -54,8 +58,8 @@ const AboutUs = () => {
                 Needs Assessment and Resource Planning
               </h3>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro vel tempora tenetur
-                quam!
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro
+                vel tempora tenetur quam!
               </p>
             </div>
           </div>
@@ -66,7 +70,7 @@ const AboutUs = () => {
               viewBox="0 0 24 24"
               strokeWidth="1.5"
               stroke="currentColor"
-              className=" size-10  shrink-0 group-hover:text-white transition-all duration-500"
+              className=" size-8 lg:size-10  shrink-0 group-hover:text-white transition-all duration-500"
             >
               <path
                 strokeLinecap="round"
@@ -85,8 +89,8 @@ const AboutUs = () => {
                 Centralized Coordination Hub
               </h3>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro vel tempora tenetur
-                quam!
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro
+                vel tempora tenetur quam!
               </p>
             </div>
           </div>
@@ -97,7 +101,7 @@ const AboutUs = () => {
               viewBox="0 0 24 24"
               strokeWidth="1.5"
               stroke="currentColor"
-              className=" size-10  shrink-0 group-hover:text-white transition-all duration-500"
+              className=" size-8 lg:size-10  shrink-0 group-hover:text-white transition-all duration-500"
             >
               <path
                 strokeLinecap="round"
@@ -111,8 +115,8 @@ const AboutUs = () => {
                 Inventory Management
               </h3>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro vel tempora tenetur
-                quam!
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro
+                vel tempora tenetur quam!
               </p>
             </div>
           </div>
@@ -123,7 +127,7 @@ const AboutUs = () => {
               viewBox="0 0 24 24"
               strokeWidth="1.5"
               stroke="currentColor"
-              className=" size-10  shrink-0 group-hover:text-white transition-all duration-500"
+              className=" size-8 lg:size-10  shrink-0 group-hover:text-white transition-all duration-500"
             >
               <path
                 strokeLinecap="round"
@@ -137,8 +141,8 @@ const AboutUs = () => {
                 Supplier Engagement
               </h3>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro vel tempora tenetur
-                quam!
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro
+                vel tempora tenetur quam!
               </p>
             </div>
           </div>
@@ -149,7 +153,7 @@ const AboutUs = () => {
               viewBox="0 0 24 24"
               strokeWidth="1.5"
               stroke="currentColor"
-              className=" size-10  shrink-0 group-hover:text-white transition-all duration-500"
+              className=" size-8 lg:size-10  shrink-0 group-hover:text-white transition-all duration-500"
             >
               <path
                 strokeLinecap="round"
@@ -163,8 +167,8 @@ const AboutUs = () => {
                 Post-Disaster Recovery
               </h3>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro vel tempora tenetur
-                quam!
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro
+                vel tempora tenetur quam!
               </p>
             </div>
           </div>
@@ -175,4 +179,4 @@ const AboutUs = () => {
   );
 };
 
-export default AboutUs;
+export default About;

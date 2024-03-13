@@ -18,6 +18,7 @@ import DBAllUsers from "../pages/DBAllUsers";
 import Volunteer from "../pages/Volunteer";
 import AboutUs from "../pages/AboutUs";
 import DBCreateTestimonial from "../pages/DBCreateTestimonial";
+import DBProfile from "../pages/DBProfile";
 
 const router = createBrowserRouter([
   {
@@ -80,6 +81,10 @@ const router = createBrowserRouter([
       {
         path: "home",
         element: <DBHome></DBHome>,
+      },
+      {
+        path: "profile",
+        element: <DBProfile></DBProfile>,
       },
       {
         path: "all-users",

@@ -1,4 +1,4 @@
-import  { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { motion, useAnimationControls } from "framer-motion";
 
 type TFaq = { question: string; answer: string };
@@ -39,7 +39,9 @@ const QnA = ({ faq }: TQnaProps) => {
       ></div>
       <div className="z-99 relative p-5">
         <div className="flex justify-between items-center">
-          <h3 className="font-poppins text-xl font-semibold">{question}</h3>
+          <h3 className="font-poppins text-sm lg:text-xl font-semibold">
+            {question}
+          </h3>
           {!showAns ? (
             <svg
               fill="none"
@@ -49,7 +51,11 @@ const QnA = ({ faq }: TQnaProps) => {
               className="size-6 shrink-0 text-green-500"
               onClick={toggleAns}
             >
-              <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M12 4.5v15m7.5-7.5h-15"
+              />
             </svg>
           ) : (
             <svg
@@ -65,7 +71,9 @@ const QnA = ({ faq }: TQnaProps) => {
           )}
         </div>
         <div
-          className={`${!showAns ? "mt-0" : "mt-5"} overflow-hidden transition-all duration-700 `}
+          className={`${
+            !showAns ? "mt-0" : "mt-5"
+          } overflow-hidden transition-all duration-700 `}
         >
           <motion.p animate={controls}>{answer}</motion.p>
         </div>

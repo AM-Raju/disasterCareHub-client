@@ -14,7 +14,10 @@ const NavUser = ({ handleLogout }) => {
     setIsOpen(!isOpen);
   };
   const handleClickOutside = (event: MouseEvent) => {
-    if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+    if (
+      dropdownRef.current &&
+      !dropdownRef.current.contains(event.target as Node)
+    ) {
       setIsOpen(false);
     }
   };
@@ -29,8 +32,15 @@ const NavUser = ({ handleLogout }) => {
 
   return (
     <div className="dropdown dropdown-end " ref={dropdownRef}>
-      <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-        <div onClick={handleDropdown} className=" rounded-full flex items-center gap-1">
+      <div
+        tabIndex={0}
+        role="button"
+        className="btn btn-ghost btn-circle avatar"
+      >
+        <div
+          onClick={handleDropdown}
+          className=" rounded-full flex items-center gap-1"
+        >
           <div>
             <p className="text-xs text-end font-semibold">{data?.name}</p>
             <p className="text-xs text-end text-amber-700">
@@ -38,7 +48,11 @@ const NavUser = ({ handleLogout }) => {
             </p>
           </div>
           {user && !isLoading ? (
-            <img className="rounded-full size-8" alt="User icon" src={data?.image} />
+            <img
+              className="rounded-full size-8"
+              alt="User icon"
+              src={data?.image}
+            />
           ) : (
             <FaRegUserCircle className="size-8 text-amber-500"></FaRegUserCircle>
           )}
@@ -58,7 +72,7 @@ const NavUser = ({ handleLogout }) => {
         ) : (
           <>
             <div className="relative group py-1  tracking-wider font-roboto">
-              <NavLink to="#">Profile</NavLink>
+              <NavLink to="/dashboard/profile">Profile</NavLink>
               <div className="w-1 rounded-e-3xl h-full group-hover:bg-white absolute -left-3 top-0 transition-all duration-500"></div>
             </div>
             <div className="relative group py-1  tracking-wider font-roboto">

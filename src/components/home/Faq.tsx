@@ -32,8 +32,10 @@ const Faq = () => {
 
   return (
     <Container>
-      <div className="mt-96 lg:mt-16 mb-32">
-        <h1 className=" pt-8 text-6xl font-poppins font-bold text-center">FAQs</h1>
+      <div className="mt-[450px] lg:mt-16 mb-32">
+        <h1 className=" pt-8 text-4xl lg:text-6xl font-poppins font-bold text-center">
+          FAQs
+        </h1>
         {/* Accordion */}
         <div className="lg:max-w-[70%] mx-auto mt-10">
           {faqData.map((faq, index) => (

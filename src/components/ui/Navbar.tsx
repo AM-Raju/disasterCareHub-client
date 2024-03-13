@@ -49,8 +49,8 @@ const Navbar = () => {
   return (
     <>
       {/* Web Nav */}
-      <div>
-        <div className="hidden lg:block bg-white h-24 bg-opacity-60  absolute top-0 w-full  mx-auto border-b-[1px] border-amber-500 z-50">
+      <div className=" z-[999]">
+        <div className="hidden lg:block bg-white h-24 bg-opacity-60  absolute top-0 w-full  mx-auto border-b-[1px] border-amber-500 ">
           <Container>
             <div className="h-24 flex items-center justify-between">
               <NavLink to="/">
@@ -65,7 +65,7 @@ const Navbar = () => {
                     <div className="w-full h-0.5 group-hover:bg-white absolute left-0 -bottom-9 transition-all duration-500"></div>
                   </div>
                   <div className="relative group">
-                    <NavLink to="/leaderboard">LeaderBoard</NavLink>
+                    <NavLink to="/leaderboard">Leaderboard</NavLink>
                     <div className="w-full h-0.5 group-hover:bg-white absolute left-0 -bottom-9 transition-all duration-500"></div>
                   </div>
                   <div className="relative group">
@@ -114,7 +114,7 @@ const Navbar = () => {
         {/* main block */}
         <motion.div
           animate={controlNavItemContainer}
-          className="-translate-x-52 lg:hidden bg-gray-100 pb-10 px-6 pt-10 text-black h-fit  absolute w-fit mx-auto border-r-[1px] border-amber-500 transition-transform duration-500 ease-out"
+          className="-translate-x-52 lg:hidden bg-gray-100 pb-10 px-6 pt-10 text-black h-fit  absolute top-0 w-fit mx-auto border-r-[1px] border-amber-500 transition-transform duration-500 ease-out z-50"
         >
           <FaXmark
             onClick={handleToggleNav}
@@ -128,6 +128,18 @@ const Navbar = () => {
               <div className="relative group">
                 <NavLink to="/supplies">All Supplies</NavLink>
               </div>
+              <div className="relative group">
+                <NavLink to="/leaderboard">Leaderboard</NavLink>
+              </div>
+              <div className="relative group">
+                <NavLink to="/community">Community</NavLink>
+              </div>
+              <div className="relative group">
+                <NavLink to="/about-us">About Us</NavLink>
+              </div>
+              <div className="relative group">
+                <NavLink to="/volunteer">Volunteer</NavLink>
+              </div>
 
               {!user ? (
                 <div className="relative group">
@@ -135,6 +147,9 @@ const Navbar = () => {
                 </div>
               ) : (
                 <>
+                  <div className="relative group">
+                    <NavLink to="/dashboard/profile">Profile</NavLink>
+                  </div>
                   <div className="relative group">
                     <NavLink to="/dashboard">Dashboard</NavLink>
                   </div>

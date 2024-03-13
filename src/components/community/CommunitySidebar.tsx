@@ -7,7 +7,8 @@ import { removeSupplyId } from "../../redux/features/supply/supplyIdSlice";
 
 const CommunitySidebar = () => {
   const dispatch = useAppDispatch();
-  const { data: supplyData, isLoading: supplyIsLoading } = useGetSuppliesQuery(undefined);
+  const { data: supplyData, isLoading: supplyIsLoading } =
+    useGetSuppliesQuery(undefined);
 
   const showCommunityHome = () => {
     dispatch(removeSupplyId());
@@ -18,10 +19,12 @@ const CommunitySidebar = () => {
       <div className="space-y-2 ">
         <button
           onClick={showCommunityHome}
-          className="h-10 w-full bg-amber-500 flex items-center p-3 gap-3"
+          className="h-10 w-16 md:w-full bg-amber-500 flex items-center p-3 gap-3 truncate mx-auto"
         >
-          <FaHome className=" size-6 text-white"></FaHome>
-          <h3>Community Home</h3>
+          <div className="flex items-center justify-center md:justify-start w-full">
+            <FaHome className=" size-6 text-white shrink-0"></FaHome>
+            <h3 className="truncate hidden md:block">Community Home</h3>
+          </div>
         </button>
         {!supplyIsLoading &&
           supplyData.map((item: TSupply) => (

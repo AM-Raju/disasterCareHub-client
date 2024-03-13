@@ -2,9 +2,10 @@ import Banner from "../components/home/Banner";
 import SupplyPosts from "../components/home/SupplyPosts";
 import Testimonial from "../components/home/Testimonial";
 import Gallery from "../components/home/Gallery";
-import AboutUs from "../components/home/AboutUs";
+
 import Stats from "../components/home/Stats";
 import Faq from "../components/home/Faq";
+import About from "../components/home/About";
 
 const Home = () => {
   return (
@@ -13,7 +14,7 @@ const Home = () => {
       <SupplyPosts></SupplyPosts>
       <Testimonial></Testimonial>
       <Gallery></Gallery>
-      <AboutUs></AboutUs>
+      <About></About>
       <Stats></Stats>
       <Faq></Faq>
     </div>

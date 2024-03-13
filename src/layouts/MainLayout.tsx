@@ -9,7 +9,9 @@ const MainLayout = () => {
   return (
     <div className={`${darkMode ? "bg-slate-900 text-white" : null}`}>
       <Navbar></Navbar>
+
       <Outlet></Outlet>
+
       <Footer></Footer>
     </div>
   );

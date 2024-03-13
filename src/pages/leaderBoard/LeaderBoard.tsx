@@ -10,7 +10,7 @@ const LeaderBoard = () => {
   console.log(data);
 
   return (
-    <div className=" relative">
+    <div className=" relative -z-10">
       <div className="leaderBoard-bg mt-24  min-h-[calc(100%-64px)] absolute "></div>
 
       <Container>
@@ -32,7 +32,11 @@ const LeaderBoard = () => {
               {/* LeaderBoard Card */}
               {!isLoading &&
                 data.map((donor, index) => (
-                  <LeaderBoardBar key={donor?._id} index={index} donor={donor}></LeaderBoardBar>
+                  <LeaderBoardBar
+                    key={donor?._id}
+                    index={index}
+                    donor={donor}
+                  ></LeaderBoardBar>
                 ))}
             </div>
           </div>

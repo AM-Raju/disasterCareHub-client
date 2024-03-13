@@ -22,7 +22,7 @@ const TestimonialSliderBody = ({
         } mx-1 z-30 relative`}
       >
         <div className="flex flex-col lg:flex-row justify-evenly items-center">
-          <div className="w-96 lg:w-[500px] p-10">
+          <div className="w-96 lg:w-[500px] p-5 lg:p-10">
             <p>{testimonial}</p>
             <div className=" flex  items-center gap-5  mt-5 ">
               <div className="w-0.5 h-10 bg-amber-500"></div>
