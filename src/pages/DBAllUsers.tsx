@@ -1,6 +1,7 @@
 import Spinner from "../components/ui/Spinner";
 import UserTableRow from "../components/DBAllUsers/UserTableRow";
 import { useGetAllUsersQuery } from "../redux/features/users/usersApi";
+import { TUser } from "../types/user.type";
 
 const DBAllUsers = () => {
   const { data, isLoading } = useGetAllUsersQuery(undefined);
@@ -32,8 +33,12 @@ const DBAllUsers = () => {
           <tbody>
             {/* row 1 */}
 
-            {data.map((user, index: number) => (
-              <UserTableRow key={user?._id} index={index} user={user}></UserTableRow>
+            {data.map((user: TUser, index: number) => (
+              <UserTableRow
+                key={user?._id}
+                index={index}
+                user={user}
+              ></UserTableRow>
             ))}
           </tbody>
         </table>

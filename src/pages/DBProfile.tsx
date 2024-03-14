@@ -1,11 +1,32 @@
-import Button from "../components/ui/Button";
+import { useEffect, useState } from "react";
 import { useGetUserQuery } from "../redux/features/users/usersApi";
 import { useAppSelector } from "../redux/hook";
+import { FaRegUser } from "react-icons/fa6";
+
+type TProfileInfo = {
+  name?: string;
+  image?: string;
+  email?: string;
+  role?: string;
+  company?: string;
+  designation?: string;
+  city?: string;
+  state?: string;
+  country?: string;
+};
 
 const DBProfile = () => {
+  const [profileInfo, setProfileInfo] = useState<TProfileInfo>({});
   const user = useAppSelector((state) => state.auth.user);
   const { data, isLoading } = useGetUserQuery(user?.email);
   console.log(data);
+
+  useEffect(() => {
+    if (!isLoading) {
+      setProfileInfo(data);
+    }
+  }, [data]);
+
   const {
     name,
     image,
@@ -16,7 +37,7 @@ const DBProfile = () => {
     city,
     state,
     country,
-  } = data;
+  } = profileInfo;
 
   return (
     <div className="max-w-7xl mx-auto  pt-12">
@@ -68,7 +89,15 @@ const DBProfile = () => {
             </button>
           </div>
         </div>
-        <img className="min-h-72" src={image} alt="" />
+        <div>
+          {image ? (
+            <img className="min-h-72" src={image} alt="" />
+          ) : (
+            <div className="h-52 w-44 border border-amber-500 bg-amber-100 flex items-center justify-center">
+              <FaRegUser className="size-32 text-amber-300" />
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

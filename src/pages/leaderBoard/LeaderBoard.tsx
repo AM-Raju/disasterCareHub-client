@@ -3,6 +3,7 @@ import "./leaderBoard.css";
 
 import LeaderBoardBar from "../../components/leaderBoard/LeaderBoardBar";
 import { useLeaderBoardQuery } from "../../redux/features/supply/supplyApi";
+import { TDonor } from "../../types/donor.types";
 
 const LeaderBoard = () => {
   const { data, isLoading } = useLeaderBoardQuery(undefined);
@@ -31,7 +32,7 @@ const LeaderBoard = () => {
               </div>
               {/* LeaderBoard Card */}
               {!isLoading &&
-                data.map((donor, index) => (
+                data.map((donor: TDonor, index: number) => (
                   <LeaderBoardBar
                     key={donor?._id}
                     index={index}

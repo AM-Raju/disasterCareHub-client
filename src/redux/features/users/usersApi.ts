@@ -11,6 +11,7 @@ const usersApi = baseApi.injectEndpoints({
           method: "GET",
         };
       },
+      providesTags: ["user"],
     }),
     /* Get single user */
     getUser: builder.query({
@@ -20,8 +21,23 @@ const usersApi = baseApi.injectEndpoints({
           method: "GET",
         };
       },
+      providesTags: ["user"],
+    }),
+
+    /* Delete user */
+    deleteUser: builder.mutation({
+      query: (id) => {
+        console.log("redux id", id);
+
+        return {
+          url: `/api/v1/delete-user/${id}`,
+          method: "DELETE",
+        };
+      },
+      invalidatesTags: ["user"],
     }),
   }),
 });
 
-export const { useGetAllUsersQuery, useGetUserQuery } = usersApi;
+export const { useGetAllUsersQuery, useGetUserQuery, useDeleteUserMutation } =
+  usersApi;

@@ -1,16 +1,24 @@
 import { FaRegEdit } from "react-icons/fa";
 import { FaTrash } from "react-icons/fa6";
-import { Link } from "react-router-dom";
-import { TSupply } from "../../types/supply.types";
+
 import { useEffect, useState } from "react";
 import { useAppSelector } from "../../redux/hook";
-import { useGetUserQuery } from "../../redux/features/users/usersApi";
-// import { useAppDispatch } from "../../redux/hook";
-// import { openDeleteModal } from "../../redux/features/deleteModalSlice";
-// import { openUpdateSupplyModal } from "../../redux/features/updateSupplyModalSlice";
+import {
+  useDeleteUserMutation,
+  useGetUserQuery,
+} from "../../redux/features/users/usersApi";
+import toast from "react-hot-toast";
+import { TUser } from "../../types/user.type";
 
-const UserTableRow = ({ user, index }) => {
+type TUserTableRowProps = {
+  user: TUser;
+  index: number;
+};
+
+const UserTableRow = ({ user, index }: TUserTableRowProps) => {
   const [disabled, setDisabled] = useState(false);
+
+  const [deleteUser] = useDeleteUserMutation();
 
   const userInfo = useAppSelector((state) => state.auth.user);
 
@@ -26,6 +34,17 @@ const UserTableRow = ({ user, index }) => {
   }, [data?.role]);
 
   const { _id, name, email, image, role } = user;
+
+  const handleDeleteUser = async (id: string) => {
+    try {
+      const res: any = await deleteUser(id);
+      if (res?.data?.deletedCount > 0) {
+        toast.success("User deleted successfully");
+      }
+    } catch (error) {
+      toast.error("Error in user deletion");
+    }
+  };
 
   return (
     <>
@@ -79,21 +98,27 @@ const UserTableRow = ({ user, index }) => {
         </td>
 
         <td>
-          <button className="flex items-center justify-center  w-full" disabled={disabled}>
+          <button
+            className="flex items-center justify-center  w-full"
+            disabled={disabled}
+          >
             <FaRegEdit
               // onClick={() => handleUpdateSupplyModal(_id)}
               className={`size-5 text-amber-500 transition-all duration-300 ${
-                disabled ? "text-gray-400" : "hover:bg-amber-600"
+                disabled ? "text-gray-400" : "hover:text-amber-600"
               }`}
             ></FaRegEdit>
           </button>
         </td>
         <td>
-          <button className="flex items-center justify-center w-full" disabled={disabled}>
+          <button
+            className="flex items-center justify-center w-full"
+            disabled={disabled}
+          >
             <FaTrash
-              //   onClick={() => handleDeleteModal(_id)}
+              onClick={() => handleDeleteUser(_id)}
               className={`size-5 text-amber-500 transition-all duration-300 ${
-                disabled ? "text-gray-400" : "hover:bg-amber-600"
+                disabled ? "text-gray-400" : "hover:text-amber-600"
               }`}
             ></FaTrash>
           </button>

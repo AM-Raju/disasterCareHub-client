@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import { FaRegUserCircle } from "react-icons/fa";
 import { useGetUserQuery } from "../../redux/features/users/usersApi";
 
-const NavUser = ({ handleLogout }) => {
+const NavUser = ({ handleLogout }: { handleLogout: () => void }) => {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const user = useAppSelector((state) => state.auth.user);
