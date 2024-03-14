@@ -8,6 +8,10 @@ This is a web app of disaster aid management company named Disaster Care Hub. It
 
 This web application has functionality for both general user and registered user. General user can see all information of this website. But a registered user have the access to the dashboard. By using dashboard he can create, delete, or update a supply aid.
 
+Here is a Leaderboard page where donors are listed down on the basis of their contribution. User can share their thought on the community page. There is also us option for the visitor to be a volunteer.
+
+There is also profile, All Users, Create Supply, All Supplies, Create Testimonial pages available on the dashboard.
+
 It has a register page to register the user. And then he can login to access the full functionality of this web app. User authentication is protected by all Json Web Token.
 
 This website is responsive for all device.
@@ -22,9 +26,9 @@ This website is responsive for all device.
 - Express JS as server.
 - MongoDB as database.
 
-Live URL: `https://disaster-care-hub.netlify.app/`
+Live URL: `https://disaster-care.netlify.app/`
 
-Live server: `https://disaster-care-hub-server.vercel.app/`
+Live server: `https://disaster-care-hub-s2.vercel.app/`
 
 ========================================================
 
@@ -38,7 +42,7 @@ Make sure you have Git installed on your machine.
 
 Open a terminal and navigate to the directory where you want to clone the project. Run the following command.
 
-`git clone https://github.com/Porgramming-Hero-web-course/l2-b2-assignment-6-fronten-AM-Raju`
+`git clone https://github.com/AM-Raju/disasterCareHub-client`
 
 #### Navigate to Project Directory:
 

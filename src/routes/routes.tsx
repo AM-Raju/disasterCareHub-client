@@ -54,7 +54,7 @@ const router = createBrowserRouter([
         path: "/supplies/:id",
         element: <SupplyDetails></SupplyDetails>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/supply/${params.id}`),
+          fetch(`https://disaster-care-hub-s2.vercel.app/${params.id}`),
       },
       {
         path: "/login",
